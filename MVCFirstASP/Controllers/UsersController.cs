@@ -22,10 +22,18 @@ namespace MVCFirstASP.Controllers
             return View(authors);
         }
 
-        public async Task<IActionResult> Register()
+        [HttpGet]
+        public IActionResult Register()
         {
-            
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Register(User user)
+        {
+            await _blogRepository.AddUser(user);
+
+            return View(user);
         }
     }
 }

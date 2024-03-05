@@ -6,6 +6,7 @@ namespace MVCFirstASP.Models.DB
     {
         public DbSet<User> Users { get; set; }
         public DbSet<UserPost> Posts { get; set; }
+        public DbSet<Request> Requests { get; set; }
 
         public BlogContext(DbContextOptions<BlogContext> options) : base(options)
         {
