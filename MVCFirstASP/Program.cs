@@ -9,7 +9,7 @@ var connection = builder.Configuration.GetConnectionString("DefaultConnection");
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<BlogContext>(options => options.UseSqlServer(connection));
-builder.Services.AddSingleton<IBlogRepository, BlogRepository>();
+builder.Services.AddScoped<IBlogRepository, BlogRepository>();
 
 var app = builder.Build();
 

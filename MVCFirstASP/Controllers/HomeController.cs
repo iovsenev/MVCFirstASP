@@ -35,6 +35,19 @@ namespace MVCFirstASP.Controllers
             return View();
         }
 
+        public async Task<IActionResult> Authors()
+        {
+            var authors =await _blogRepository.GetUsers();
+
+            Console.WriteLine("See all blog authors");
+            foreach (var user in authors)
+            {
+                Console.WriteLine($"Author name: {user.FirstName}, Joined: {user.JoinDate}");
+            }
+
+            return View();
+        }
+
         public IActionResult Privacy()
         {
             return View();

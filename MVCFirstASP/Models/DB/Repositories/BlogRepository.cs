@@ -22,5 +22,10 @@ namespace MVCFirstASP.Models.DB.Repositories
             // Сохранение изменений
             await _context.SaveChangesAsync();
         }
+
+        public async Task<User[]> GetUsers()
+        {
+            return await _context.Users.ToArrayAsync();
+        }
     }
 }
