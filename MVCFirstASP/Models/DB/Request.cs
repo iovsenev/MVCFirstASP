@@ -1,5 +1,8 @@
-﻿namespace MVCFirstASP.Models.DB
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MVCFirstASP.Models.DB
 {
+    [Table("Requests")]
     public class Request
     {
         public Guid Id {  get; set; } 
