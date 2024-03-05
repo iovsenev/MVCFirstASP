@@ -45,7 +45,7 @@ namespace MVCFirstASP.Controllers
                 Console.WriteLine($"Author name: {user.FirstName}, Joined: {user.JoinDate}");
             }
 
-            return View();
+            return View(authors);
         }
 
         public IActionResult Privacy()

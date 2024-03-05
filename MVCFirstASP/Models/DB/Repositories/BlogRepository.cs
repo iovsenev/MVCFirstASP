@@ -14,6 +14,8 @@ namespace MVCFirstASP.Models.DB.Repositories
 
         public async Task AddUser(User user)
         {
+            user.Id = Guid.NewGuid();
+            user.JoinDate = DateTime.Now;
             // Добавление пользователя
             var entry = _context.Entry(user);
             if (entry.State == EntityState.Detached)
