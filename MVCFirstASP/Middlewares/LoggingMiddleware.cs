@@ -35,10 +35,15 @@ namespace MVCFirstASP.Middlewares
             var pathFileLog = Path.Combine(Directory.GetCurrentDirectory(), "Logs", "RequestLog.txt");
             await File.AppendAllTextAsync(pathFileLog, message);
         }
+
         private async Task LogDBAsync(HttpContext context, IRequestRepository repository)
         {
             string rul = context.Request.Host.Value + context.Request.Path;
-            var request = new Request() { URL = rul };
+            var request = new Request() { 
+                URL = rul,
+                Id = Guid.NewGuid(),
+                Date = DateTime.Now
+            };
             await repository.Add(request);
         }
     }

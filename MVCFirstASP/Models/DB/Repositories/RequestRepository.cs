@@ -26,7 +26,9 @@ namespace MVCFirstASP.Models.DB.Repositories
 
         public async Task<Request[]> GetAll()
         {
-            return await _context.Requests.ToArrayAsync();
+            return await _context.Requests
+                .OrderByDescending(x => x.Date)
+                .ToArrayAsync();
         }
     }
 }
